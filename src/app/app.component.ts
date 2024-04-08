@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, HostBinding } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'myport-root',
@@ -7,23 +7,25 @@ import { Component, HostBinding } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'myport';
-  @HostBinding('class.pc') pcMode = false;
-
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver
-      .observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
+  constructor(
+    private element: ElementRef,
+    private breakpointObserver: BreakpointObserver
+  ) {
+    //this.breakpointObserver.observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
+    this.breakpointObserver.observe([Breakpoints.HandsetPortrait, Breakpoints.WebLandscape])
       .subscribe({
         next: (result: any) => {
-          for (let breakpoint of Object.keys(result.breakpoints))
+          for (let breakpoint of Object.keys(result.breakpoints)) {
             if (result.breakpoints[breakpoint]) {
-              if (breakpoint === Breakpoints.HandsetPortrait)
-                this.pcMode = false;
-
-              if (breakpoint === Breakpoints.WebLandscape)
-                this.pcMode = true;
+              if (breakpoint === Breakpoints.HandsetPortrait) {
+                this.element.nativeElement.classList.remove('pc');
+              }
+              if (breakpoint === Breakpoints.WebLandscape) {
+                this.element.nativeElement.classList.add('pc');
+              }
             }
-        },
-      });
+          }
+        }
+      })
   }
 }
