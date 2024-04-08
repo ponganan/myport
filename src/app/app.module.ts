@@ -11,6 +11,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
 import { ResponsiveDirective } from './directives/responsive.directive';
+import { UserInputComponent } from './user-input/user-input.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ResponsiveDirective } from './directives/responsive.directive';
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    ResponsiveDirective
+    ResponsiveDirective,
+    UserInputComponent
   ],
   imports: [
     BrowserModule,

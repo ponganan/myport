@@ -9,8 +9,13 @@
 6. create component WorkExperience
 7. create component Skills
 8. create component Projects
-8. create component Contact // ng c xxxx
+9. create component Contact // ng g c xxxx
 
-9. npm install --save @angular/cdk
 
-10. ng g d directives/Responsive
+10. npm install --save @angular/cdk
+
+11. ng g d directives/Responsive
+
+12. ng c UserInput
+
+
