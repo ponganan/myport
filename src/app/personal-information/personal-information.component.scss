@@ -14,12 +14,13 @@ table {
     outline: 1px solid white;
 }
 
-table tr {
-    height: 40px;
+table th {
+    visibility: hidden;
 }
 
 table tr td {
     padding-left: 0.5rem;
+    height: 40px;
 }
 
 table tr td:nth-child(even) {

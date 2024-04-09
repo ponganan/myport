@@ -9,7 +9,7 @@ export class PersonalInformationComponent {
 
   myData: string[][] = [
     ['Name', 'Ponganan Saensuk'],
-    ['DOB', '10/08/1983'],
+    ['Date of birth', '10/08/1983'],
     ['Work Exp', '15 Years'],
     ['Education', 'UBU (2005)'],
     ['Interrests', 'Football'],

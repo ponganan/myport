@@ -16,6 +16,6 @@
 
 11. ng g d directives/Responsive
 
-12. ng c UserInput
+12. ng g c UserInput
 
 
