@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WorkExperience } from '../models/models';
+import { WorkExperience } from '../../core/models/models';
 
 @Component({
   selector: 'myport-work-experience',

@@ -18,4 +18,17 @@
 
 12. ng g c UserInput
 
+13. ng g s services/myapp1
+
+14. ng g c components/add-myapp1
+
+15. ng g c components/myapp1-details
+
+16. ng g c components/myapp1-list
+
+17. ng g class models/myapp1 --type=model
+
+18. npm install @angular/router --save
+
+
 

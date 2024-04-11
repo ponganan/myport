@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Education } from '../models/models';
+import { Education } from '../../core/models/models';
 
 @Component({
   selector: 'myport-education',
