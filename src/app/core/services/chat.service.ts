@@ -19,7 +19,7 @@ export class ChatService {
     const chat = await model.startChat({
       history: [
         { role: 'user', parts: [{ text: 'Hi! AI' }] },
-        { role: 'model', parts: [{ text: 'Hi! What would you like to talk about today?' }] }
+        { role: 'model', parts: [{ text: 'Hi! How can I help you today?' }] }
       ],
       generationConfig: { maxOutputTokens: 2000 }
     });

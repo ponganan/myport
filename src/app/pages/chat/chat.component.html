@@ -1,15 +1,17 @@
-<div class="container">
+<div class="center-chat-window">
     <div class="chat-window">
         <ul>
             <li *ngFor="let message of messages">
                 <span class="{{ message.role }}">{{ message.role }} </span>
                 <i *ngIf="message.role === 'user'" class="bx bxs-send" style="color: var(--green);"></i>
-                <i *ngIf="message.role === 'model'" class="bx bxs-bot" style="color: var(--green);"></i>
+                <i *ngIf="message.role === 'model'" class="bx bxs-bot" style="color: #FFA07A"></i>
                 <span class="message">{{ message.text }}</span>
             </li>
         </ul>
     </div>
+</div>
 
-    <input type="text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+<div class="inputchat">
+    <input type="text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" class="inputtext">
     <button (click)="sendMessage()" class="button-6">Send</button>
 </div>

@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   async ngOnInit() {
     // Initial greeting messages (optional)
     this.messages.push({ role: 'user', text: 'Hi! AI' });
-    this.messages.push({ role: 'model', text: 'Hi! What would you like to talk about today?' });
+    this.messages.push({ role: 'model', text: 'Hi! How can I help you today?' });
   }
 
   async sendMessage() {

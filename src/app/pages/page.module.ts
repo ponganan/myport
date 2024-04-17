@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //
 import { FormsModule } from '@angular/forms';
+//
+
 
 //
 import { PersonalInformationComponent } from '../pages/personal-information/personal-information.component';
@@ -40,6 +42,8 @@ import { ChatComponent } from './chat/chat.component';
     ContactComponent,
     ResponsiveDirective,
     UserInputComponent,
+    PortpageComponent,
+    ChatComponent,
   ],
   imports: [
     CommonModule,

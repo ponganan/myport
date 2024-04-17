@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
+
+//test real time chat
+//import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 
 
@@ -16,10 +20,15 @@ import { PageModule } from './pages/page.module';
     BrowserModule,
     AppRoutingModule,
     PageModule,
+    //test real time chat
+    // HttpClientModule
+
+
 
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
