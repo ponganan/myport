@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../../core/services/chat.service'; // Import chat service if created
+import { ChatService } from '../../core/services/gemini api/chat.service'; // Import chat service if created
 
 @Component({
   selector: 'app-chat',

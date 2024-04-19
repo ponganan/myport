@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Skill } from '../../core/models/models';
+import { Skill } from '../../core/models/interface/models';
 
 @Component({
   selector: 'myport-skills',

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 //
 import { FormsModule } from '@angular/forms';
 //
+import { MatCardModule } from '@angular/material/card';
 
 
 //
@@ -17,6 +18,7 @@ import { ResponsiveDirective } from '../shared/directives/responsive.directive';
 import { UserInputComponent } from '../pages/user-input/user-input.component';
 import { PortpageComponent } from './portpage/portpage.component';
 import { ChatComponent } from './chat/chat.component';
+import { ShowprojectComponent } from './showproject/showproject.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,10 @@ import { ChatComponent } from './chat/chat.component';
     UserInputComponent,
     PortpageComponent,
     ChatComponent,
+    ShowprojectComponent,
   ],
   exports: [
+    // Optional: If component is used in other modules
     PersonalInformationComponent,
     BannerComponent,
     EducationComponent,
@@ -44,10 +48,13 @@ import { ChatComponent } from './chat/chat.component';
     UserInputComponent,
     PortpageComponent,
     ChatComponent,
+    //ShowprojectComponent
+
   ],
   imports: [
     CommonModule,
     FormsModule,
+    MatCardModule
   ]
 })
 export class PageModule { }

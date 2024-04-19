@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Project } from '../../core/models/models';
+import { Project } from '../../core/models/interface/models';
 
 @Component({
   selector: 'myport-projects',
