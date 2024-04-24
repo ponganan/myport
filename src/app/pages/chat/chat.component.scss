@@ -28,7 +28,7 @@
 .inputchat {
     margin: 0 auto;
     padding: 1rem;
-    max-width: 500px;
+    max-width: 450px;
     outline: 0px solid white;
     display: flex;
     /* Enable flexbox */
@@ -48,7 +48,8 @@
     width: 100%;
     box-sizing: border-box;
     user-select: auto;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
     padding: 0 6px;
     padding-left: 12px;
 
@@ -59,12 +60,14 @@
 
 .button-6 {
     align-items: center;
-    background-color: #FFFFFF;
+    //background-color: #FFFFFF;
+    background-color: #d859a1;
+    color: aliceblue;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: .25rem;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.85);
+    //color: rgba(0, 0, 0, 0.85);
     cursor: pointer;
     display: inline-flex;
     font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -87,9 +90,10 @@
 
 .button-6:hover,
 .button-6:focus {
-    border-color: rgba(0, 0, 0, 0.15);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: rgba(0, 0, 0, 0.65);
+    background-color: #d34495;
+    // border-color: rgba(0, 0, 0, 0.15);
+    // box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    // color: rgba(0, 0, 0, 0.65);
 }
 
 .button-6:hover {

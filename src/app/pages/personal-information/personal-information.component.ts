@@ -12,11 +12,12 @@ export class PersonalInformationComponent {
     ['Date of birth', '10/08/1983'],
     ['Work Exp', '15 Years'],
     ['Education', 'UBU (2005)'],
-    ['Interrests', 'Football'],
+    ['Interrests', 'AI'],
   ]
   aboutMe: string[] = [
-    'I am a developer with extensive experience and seeking for a challenge',
-    'where I can produce new technologies and innovation.',
-    'I am an adaptive and self growth mindset.'
+    'I am a highly motivated software developer with extensive experience.',
+    'Seeking a challenging opportunity to contribute to cutting-edge technological advancements.',
+    'Possesses a strong track record of innovation and a continuous learning mindset,',
+    'allowing for rapid adaptation to new technologies and environments.'
   ]
 }

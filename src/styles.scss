@@ -4,6 +4,9 @@
     --gray-light: #BDBDBD;
     --dark-gray: #263238;
     --black: #212121;
+    --color-light-300: hsla(0, 0%, 95%, 1);
+    --color-primary-100: oklch(53.18% .28 296.97);
+    --color-secondary-100: oklch(59.91% .239 8.14);
 }
 
 * {
@@ -30,5 +33,3 @@ h1 {
     outline: 1px solid white;
     font-family: 'Roboto Condensed', sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

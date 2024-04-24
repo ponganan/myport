@@ -48,7 +48,7 @@ import { ShowprojectComponent } from './showproject/showproject.component';
     UserInputComponent,
     PortpageComponent,
     ChatComponent,
-    //ShowprojectComponent
+    ShowprojectComponent
 
   ],
   imports: [
