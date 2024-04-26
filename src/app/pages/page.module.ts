@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 //
 import { MatCardModule } from '@angular/material/card';
+// 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 //
@@ -19,6 +21,10 @@ import { UserInputComponent } from '../pages/user-input/user-input.component';
 import { PortpageComponent } from './portpage/portpage.component';
 import { ChatComponent } from './chat/chat.component';
 import { ShowprojectComponent } from './showproject/showproject.component';
+import { LoginComponent } from '../pages/login/login.component';
+import { AuthService } from '../core/services/auth/auth-service.service';
+import { AuthInterceptor } from '../core/interceptors/auth/auth.interceptor';
+import { XxxComponent } from './xxx/xxx.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,8 @@ import { ShowprojectComponent } from './showproject/showproject.component';
     PortpageComponent,
     ChatComponent,
     ShowprojectComponent,
+    LoginComponent,
+    XxxComponent,
   ],
   exports: [
     // Optional: If component is used in other modules
@@ -54,7 +62,16 @@ import { ShowprojectComponent } from './showproject/showproject.component';
   imports: [
     CommonModule,
     FormsModule,
-    MatCardModule
-  ]
+    MatCardModule,
+    HttpClientModule
+  ],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
 })
 export class PageModule { }

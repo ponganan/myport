@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddMyapp1Component } from './components/add-myapp1/add-myapp1.component';
-import { Myapp1DetailsComponent } from './components/myapp1-details/myapp1-details.component';
-import { Myapp1ListComponent } from './components/myapp1-list/myapp1-list.component';
 import { PortpageComponent } from './pages/portpage/portpage.component';
-import { ChatComponent } from './pages/chat/chat.component'
+import { ChatComponent } from './pages/chat/chat.component';
+import { LoginComponent } from '../app/pages/login/login.component';
 
 //Routes for myapp1
 const routes: Routes = [
@@ -14,9 +12,9 @@ const routes: Routes = [
   { path: '', component: PortpageComponent },
 
 
-  { path: 'myapp1', component: Myapp1ListComponent },
-  { path: 'myapp1/:id', component: Myapp1DetailsComponent },
-  { path: 'myapp1/add', component: AddMyapp1Component },
+  // { path: 'myapp1', component: Myapp1ListComponent },
+  // { path: 'myapp1/:id', component: Myapp1DetailsComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'chat', component: ChatComponent },
 
   { path: 'portpage', component: PortpageComponent },

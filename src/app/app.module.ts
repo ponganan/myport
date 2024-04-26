@@ -9,7 +9,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PageModule } from './pages/page.module';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+//import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    provideAnimationsAsync()
+    //provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
