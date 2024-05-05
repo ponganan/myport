@@ -1,47 +1,52 @@
-<div class="sign-in-container">
-    <div class="sign-column s1">
-        <div class="sign-column-face s2">
-            <div class="s3">
-                <div class="sign-header-section">
-                    <div class="sign-in-title">
-                        Login Page
+<section class="forms-section">
+    <h1>Animated Forms</h1>
+    <div class="forms">
+        <div class="form-wrapper" [ngClass]="{'is-active': activeForm === 'login'}">
+            <button type="button" class="switcher switcher-login" (click)="setActiveForm('login')">
+                Login
+                <span class="underline"></span>
+            </button>
+            <form class="form form-login" #loginForm="ngForm" (ngSubmit)="onSubmitLogin()">
+                <fieldset>
+                    <legend>Please, enter your email and password for login.</legend>
+                    <div class="input-block">
+                        <label for="login-email">E-mail</label>
+                        <input id="login-email" type="email" required [(ngModel)]="loginData.email" name="email">
                     </div>
-                    <div class="sign-in-title-alt">
-                        Welcome
+                    <div class="input-block">
+                        <label for="login-password">Password</label>
+                        <input id="login-password" type="password" required [(ngModel)]="loginData.password"
+                            name="password">
                     </div>
-                </div>
-                <div class="sign-buttons">
-                    <a href="#" class="login-w-button">
-                        <img width="18" height="18" src="https://img.icons8.com/color/48/google-logo.png"
-                            alt="google-logo" />
-                        <span>Sign in with Google</span>
-                    </a>
-                </div>
-                <div class="slice-container">
-                    <div class="slice-text-c">
-                        <div class="slicer"></div>
-                        <div class="slice-text">Or with email</div>
+                </fieldset>
+                <button type="submit" class="btn-login" [disabled]="!loginForm.valid">Login</button>
+            </form>
+        </div>
+        <div class="form-wrapper" [ngClass]="{'is-active': activeForm === 'signup'}">
+            <button type="button" class="switcher switcher-signup" (click)="setActiveForm('signup')">
+                Sign Up
+                <span class="underline"></span>
+            </button>
+            <form class="form form-signup" #signupForm="ngForm" (ngSubmit)="onSubmitSignup()">
+                <fieldset>
+                    <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                    <div class="input-block">
+                        <label for="signup-email">E-mail</label>
+                        <input id="signup-email" type="email" required [(ngModel)]="signupData.email" name="email">
                     </div>
-                </div>
-                <form class="input-container" #loginForm="ngForm">
-                    <input type="email" required placeholder="Email" #username [(ngModel)]="username">
-                    <input type="password" required placeholder="Passowrd" #password [(ngModel)]="password">
-                    <a href="#" class="alt-f">
-                        Forgot Password ?
-                    </a>
-                    <button (click)="onSubmit(loginForm)">
-                        Sign in
-                    </button>
-                    <div href="#" class="alt-f-full">
-                        Not a Member yet ?
-                        <a href="sign-up.html" class="alt-f">
-                            Sign up
-                        </a>
+                    <div class="input-block">
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" type="password" required [(ngModel)]="signupData.password"
+                            name="password">
                     </div>
-
-                </form>
-            </div>
-
+                    <div class="input-block">
+                        <label for="signup-password-confirm">Confirm password</label>
+                        <input id="signup-password-confirm" type="password" required
+                            [(ngModel)]="signupData.confirmPassword" name="confirmPassword">
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn-signup" [disabled]="!signupForm.valid">Continue</button>
+            </form>
         </div>
     </div>
-</div>
+</section>

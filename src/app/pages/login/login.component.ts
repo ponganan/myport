@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth/auth-service.service';
 //import { Router } from '@angular/router'; // Import Router for navigation
 import { FormsModule } from '@angular/forms';
@@ -9,40 +9,26 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 
-export class LoginComponent {
-  username = '';
-  password = '';
-  loginError: string | null = null;
-  isLoading = false; // Flag for loading state
+export class LoginComponent implements OnInit {
+  activeForm: string = 'login';
+  loginData = { email: '', password: '' };
+  signupData = { email: '', password: '', confirmPassword: '' };
 
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
-  onSubmit(loginForm: NgForm) {
-    this.isLoading = true; // Set loading state to true
-    this.authService.login(this.username, this.password)
-      .subscribe(
-        response => {
-          this.isLoading = false; // Clear loading state
+  ngOnInit() { }
 
-          // Handle successful login (replace with your actual logic)
-          const accessToken = this.authService.getAccessToken();
-          const refreshToken = this.authService.getRefreshToken();
+  setActiveForm(form: string) {
+    this.activeForm = form;
+  }
 
-          if (accessToken && refreshToken) {
-            // Store tokens securely (e.g., encrypted local storage or database)
-            // ... (your secure storage implementation)
+  onSubmitLogin() {
+    // Implement your login logic here using the loginData object
+    console.log('Login form submitted:', this.loginData);
+  }
 
-            // this.router.navigate(['/chat']); // Redirect to protected area
-          } else {
-            console.error('Failed to retrieve tokens from login response');
-          }
-        },
-        error => {
-          this.isLoading = false; // Clear loading state
-
-          // Handle errors (consider parsing error response for specific messages)
-          this.loginError = error.message || 'Login failed. Please try again.';
-        }
-      );
+  onSubmitSignup() {
+    // Implement your signup logic here using the signupData object
+    console.log('Signup form submitted:', this.signupData);
   }
 }
