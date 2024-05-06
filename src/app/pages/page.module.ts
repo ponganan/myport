@@ -7,7 +7,6 @@ import { MatCardModule } from '@angular/material/card';
 // 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 //
 import { PersonalInformationComponent } from '../pages/personal-information/personal-information.component';
 import { BannerComponent } from '../pages/banner/banner.component';
@@ -24,7 +23,6 @@ import { ShowprojectComponent } from './showproject/showproject.component';
 import { LoginComponent } from '../pages/login/login.component';
 import { AuthService } from '../core/services/auth/auth-service.service';
 import { AuthInterceptor } from '../core/interceptors/auth/auth.interceptor';
-import { XxxComponent } from './xxx/xxx.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +39,6 @@ import { XxxComponent } from './xxx/xxx.component';
     ChatComponent,
     ShowprojectComponent,
     LoginComponent,
-    XxxComponent,
   ],
   exports: [
     // Optional: If component is used in other modules
