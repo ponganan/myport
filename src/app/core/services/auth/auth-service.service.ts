@@ -12,63 +12,20 @@ export class AuthService {
   login(username: string, password: string): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(this.loginUrl, { username, password })
       .pipe(
-        map(response => {
-          // Handle successful login and store tokens securely (replace with your actual implementation)
-          this.setTokens(response.accessToken, response.refreshToken); // Placeholder, adapt to your API response structure
-          return response;
-        }),
-        catchError(error => {
-          // Handle login errors
-          console.error('Error logging in:', error);
-          return throwError(error); // Re-throw the error for handling in the component
-        })
+        map(response => response), // Assuming response doesn't contain access/refresh tokens
+        catchError(error => this.handleError(error)) // Handle errors
       );
   }
 
-  // Secure token storage using cookies (consider alternative methods based on your requirements)
-  setTokens(accessToken: string, refreshToken: string) {
-    this.setCookie('accessToken', accessToken, { expires: 3600 }); // Expires in 1 hour
-    this.setCookie('refreshToken', refreshToken, { expires: 86400 }); // Expires in 1 day
+  private handleError(error: any): Observable<any> {
+    console.error('Error logging in:', error);
+    return throwError(error); // Re-throw the error for handling in the component
   }
 
-  private setCookie(name: string, value: string, options: any) {
-    options = options || {};
-    var expires = options.expires;
-
-    if (typeof expires === "number") {
-      var d = new Date();
-      d.setTime(d.getTime() + expires * 1000);
-      expires = options.expires = d;
-    }
-    options.path = '/'; // Set the path for the cookie
-    options.secure = true; // Ensure secure transmission
-    options.sameSite = 'Lax'; // Send with same-site requests or top-level navigations
-
-    document.cookie = name + '=' + value + '; ' + JSON.stringify(options);
+  isLoggedIn(): boolean {
+    // Check for the presence of the access token cookie (HttpOnly)
+    return document.cookie.indexOf('accessToken=') !== -1;
   }
 
-  getAccessToken(): string | null {
-    return this.getCookie('accessToken');
-  }
-
-  getRefreshToken(): string | null {
-    return this.getCookie('refreshToken');
-  }
-
-  private getCookie(name: string): string | null {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      let cookie = cookies[i].split('=');
-      const cookieName = cookie[0].trim();
-      if (cookieName === name) {
-        return cookie[1];
-      }
-    }
-    return null;
-  }
-
-  clearTokens() {
-    this.setCookie('accessToken', '', { expires: 0 });
-    this.setCookie('refreshToken', '', { expires: 0 });
-  }
+  // Removed setTokens() and setCookie() as they are not used with HttpOnly cookies
 }

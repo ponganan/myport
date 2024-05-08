@@ -60,7 +60,7 @@ import { AuthInterceptor } from '../core/interceptors/auth/auth.interceptor';
     CommonModule,
     FormsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthService,

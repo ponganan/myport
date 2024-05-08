@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../core/services/auth/auth-service.service';
-//import { Router } from '@angular/router'; // Import Router for navigation
-
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { catchError, map, Observable, throwError } from 'rxjs';
+//import { response } from 'express';
 @Component({
   selector: 'myport-login',
   templateUrl: './login.component.html',
@@ -13,13 +11,12 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   activeForm: string = 'login';
-  //loginData = { email: '', password: '' };
-  loginData = { email: '', password: '' };
   signupData = { email: '', password: '', confirmPassword: '' };
+  errorMessage: string = '';
 
   LoginObj: Login;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
     this.LoginObj = new Login();
   }
 
@@ -30,23 +27,57 @@ export class LoginComponent implements OnInit {
     this.activeForm = form;
   }
 
-  onSubmitLogin() {
-    // Call the login method from AuthService
-    this.authService.login(this.loginData.email, this.loginData.password)
-      .subscribe(
-        (response) => {
-          // Handle successful login
-          console.log('Login successful!', response); // Replace with actual success handling (e.g., navigate to dashboard)
-          this.router.navigate(['/chat']); // Example navigation on successful login
-        },
-        (error) => {
-          // Handle login errors
-          console.error('Login error:', error);
-          alert('Login failed! Please check your credentials.'); // Replace with user-friendly error message
+  // onSubmitLogin() {
+  //   this.http.post<any>('http://localhost:3000/login', this.LoginObj)
+  //     .subscribe({
+  //       next: (response) => {
+  //         // Handle successful login (replace with your logic)       
 
-        }
+  //         alert(response.message);
+  //         this.router.navigate(['/chat']);
+
+  //       },
+
+  //       error: (error) => {
+  //         if (error.error) {
+  //           this.errorMessage = error.error.message; // Access the error message from the server
+  //           alert(this.errorMessage);
+  //         } else {
+  //           this.errorMessage = 'Login failed!'; // Generic message if no specific error is provided
+  //           alert(this.errorMessage);
+  //         }
+
+  //       }
+  //     });
+  // }
+
+  onSubmitLogin(): void {
+    this.login(this.LoginObj.email, this.LoginObj.password).subscribe({
+      next: (response) => {
+        // Handle successful login (replace with your logic)
+        alert(response.message);
+        this.router.navigate(['/chat']);
+      },
+      error: (error) => {
+        this.errorMessage = error.error.message;
+        alert(this.errorMessage);
+      }
+    })
+  }
+
+  private login(username: string, password: string): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/login', { username, password })
+      .pipe(
+        map(response => response), // Assuming no data transformation needed
+        catchError(error => this.handleError(error))
       );
   }
+
+  private handleError(error: any): Observable<any> {
+    console.error('Error logging in:', error);
+    return throwError(error); // Re-throw the error for handling in the component
+  }
+
 
 
   onSubmitSignup() {
