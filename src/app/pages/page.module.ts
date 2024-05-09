@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 //
 import { MatCardModule } from '@angular/material/card';
 // 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //
 import { PersonalInformationComponent } from '../pages/personal-information/personal-information.component';
@@ -21,8 +21,7 @@ import { PortpageComponent } from './portpage/portpage.component';
 import { ChatComponent } from './chat/chat.component';
 import { ShowprojectComponent } from './showproject/showproject.component';
 import { LoginComponent } from '../pages/login/login.component';
-import { AuthService } from '../core/services/auth/auth-service.service';
-import { AuthInterceptor } from '../core/interceptors/auth/auth.interceptor';
+//import { AuthService } from '../core/services/auth/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -63,12 +62,6 @@ import { AuthInterceptor } from '../core/interceptors/auth/auth.interceptor';
     HttpClientModule,
   ],
   providers: [
-    AuthService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
   ],
 })
 export class PageModule { }
