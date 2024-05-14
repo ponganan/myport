@@ -17,7 +17,7 @@ export class AuthService {
 
   login(user: { email: string, password: string }): Observable<any> {
     return this.http.post('http://localhost:3000/login', user).pipe(
-      tap((response: any) => this.doLoginUser(user.email, response.accessToken))
+      tap((tokens: any) => this.doLoginUser(user.email, tokens.accessToken))
     )
   }
 
@@ -34,5 +34,16 @@ export class AuthService {
   logout() {
     localStorage.removeItem(this.JWT_TOKEN);
     this.isAuthenticatedSubject.next(false);
+  }
+
+  getCurrentAuthUser() {
+    let token = localStorage.getItem(this.JWT_TOKEN);
+    return this.http.get('http://localhost:3000/api/userinfo',
+      //  {
+      //   headers: {
+      //     Authorization: 'Bearer ' + token,
+      //   }
+      // }
+    );
   }
 }

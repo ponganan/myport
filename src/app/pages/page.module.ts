@@ -21,6 +21,7 @@ import { PortpageComponent } from './portpage/portpage.component';
 import { ChatComponent } from './chat/chat.component';
 import { ShowprojectComponent } from './showproject/showproject.component';
 import { LoginComponent } from '../pages/login/login.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 //import { AuthService } from '../core/services/auth/auth-service.service';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LoginComponent } from '../pages/login/login.component';
     ChatComponent,
     ShowprojectComponent,
     LoginComponent,
+    UserInfoComponent,
   ],
   exports: [
     // Optional: If component is used in other modules

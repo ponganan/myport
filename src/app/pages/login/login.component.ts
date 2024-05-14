@@ -35,12 +35,13 @@ export class LoginComponent implements OnInit {
         (response) => {
           // Login successful, navigate to protected route
           alert(response.accessToken);
-          this.router.navigate(['/chat']); // Replace with your protected route
+          this.router.navigate(['/userinfo']); // Replace with your protected route
         },
         (error) => {
           // Login failed, handle error
           alert(error.error.message);
           this.errorMessage = 'Login failed. Please check your credentials.';
+          console.log(this.errorMessage);
         }
       );
   }

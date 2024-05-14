@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PortpageComponent } from './pages/portpage/portpage.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { LoginComponent } from '../app/pages/login/login.component';
+import { UserInfoComponent } from './pages/user-info/user-info.component';
 
 //Routes for myapp1
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   // { path: 'myapp1/:id', component: Myapp1DetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'userinfo', component: UserInfoComponent },
 
   { path: 'portpage', component: PortpageComponent },
 
