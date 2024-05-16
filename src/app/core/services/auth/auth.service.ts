@@ -46,4 +46,8 @@ export class AuthService {
       // }
     );
   }
+
+  isLoggedIn() {
+    return this.isAuthenticatedSubject.value;
+  }
 }
