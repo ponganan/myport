@@ -14,5 +14,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 };
 
 function getJwtToken(): string | null {
-  return localStorage.getItem('JWT_TOKEN');
+  let tokens: any = localStorage.getItem('JWT_TOKEN');
+  if (!tokens) return null;
+  const token = JSON.parse(tokens).accessToken;
+  return token;
+
 }

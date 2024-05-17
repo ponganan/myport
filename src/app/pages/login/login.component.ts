@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth/auth.service';
 
@@ -8,7 +8,7 @@ import { AuthService } from '../../core/services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   activeForm: string = 'login';
   signupData = { email: '', password: '', confirmPassword: '' };
   errorMessage: string = '';
@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit {
     this.LoginObj = new Login();
   }
 
-  ngOnInit() { }
-
-
   setActiveForm(form: string) {
     this.activeForm = form;
   }
@@ -31,19 +28,19 @@ export class LoginComponent implements OnInit {
     this.errorMessage = ''; // Clear any previous error message
 
     this.authService.login(this.LoginObj)
-      .subscribe(
-        (response) => {
+      .subscribe({
+        next: (response) => {
           // Login successful, navigate to protected route
           alert(response.accessToken);
           this.router.navigate(['/userinfo']); // Replace with your protected route
         },
-        (error) => {
+        error: (error) => {
           // Login failed, handle error
           alert(error.error.message);
           this.errorMessage = 'Login failed. Please check your credentials.';
           console.log(this.errorMessage);
         }
-      );
+      });
   }
 
 

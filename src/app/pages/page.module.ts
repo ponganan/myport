@@ -20,9 +20,8 @@ import { UserInputComponent } from '../pages/user-input/user-input.component';
 import { PortpageComponent } from './portpage/portpage.component';
 import { ChatComponent } from './chat/chat.component';
 import { ShowprojectComponent } from './showproject/showproject.component';
-import { LoginComponent } from '../pages/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { UserInfoComponent } from './user-info/user-info.component';
-//import { AuthService } from '../core/services/auth/auth-service.service';
 
 @NgModule({
   declarations: [

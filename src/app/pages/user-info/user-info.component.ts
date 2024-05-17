@@ -17,5 +17,12 @@ export class UserInfoComponent {
     })
   }
 
+  logout() {
+    this.authService.logout();
+  }
+
+  refreshToken() {
+    this.authService.refreshToken()?.subscribe(() => { });
+  }
 
 }

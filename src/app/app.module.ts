@@ -10,7 +10,6 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { AppComponent } from './app.component';
 import { PageModule } from './pages/page.module';
 import { authInterceptor } from './core/interceptors/auth/auth.interceptor';
-//import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
