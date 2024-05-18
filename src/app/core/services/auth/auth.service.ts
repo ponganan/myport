@@ -48,8 +48,7 @@ export class AuthService {
   }
 
   getCurrentAuthUser() {
-    return this.http.get('http://localhost:3000/api/userinfo',
-    );
+    return this.http.get('http://localhost:3000/api/userinfo');
   }
 
   // isLoggedIn() {
@@ -85,7 +84,6 @@ export class AuthService {
     return this.http.post<any>('http://localhost:3000/auth/refresh-token', {
       refreshToken,
     })
-      .pipe(tap((Tokens: any) => this.storeJwtToken(Tokens.accessToken)));
+      .pipe(tap((tokens: any) => this.storeJwtToken(JSON.stringify(tokens))));
   }
-
 }
