@@ -3,7 +3,7 @@ import { Token } from '@angular/compiler';
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,8 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private loggedUser?: string;
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+  //public $refreshToken = new Subject<boolean>;
+
   private router = inject(Router);
 
   private http = inject(HttpClient);
