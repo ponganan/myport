@@ -22,9 +22,6 @@ import { authInterceptor } from './core/interceptors/auth/auth.interceptor';
 
     //test real time chat
     // HttpClientModule
-
-
-
   ],
   providers: [
     provideClientHydration(),

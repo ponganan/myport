@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 //
 import { MatCardModule } from '@angular/material/card';
 // 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 //
 import { PersonalInformationComponent } from '../pages/personal-information/personal-information.component';
@@ -23,46 +23,39 @@ import { ShowprojectComponent } from './showproject/showproject.component';
 import { LoginComponent } from './login/login.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 
-@NgModule({
-  declarations: [
-    PersonalInformationComponent,
-    BannerComponent,
-    EducationComponent,
-    WorkExperienceComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    ContactComponent,
-    ResponsiveDirective,
-    UserInputComponent,
-    PortpageComponent,
-    ChatComponent,
-    ShowprojectComponent,
-    LoginComponent,
-    UserInfoComponent,
-  ],
-  exports: [
-    // Optional: If component is used in other modules
-    PersonalInformationComponent,
-    BannerComponent,
-    EducationComponent,
-    WorkExperienceComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    ContactComponent,
-    ResponsiveDirective,
-    UserInputComponent,
-    PortpageComponent,
-    ChatComponent,
-    ShowprojectComponent
-
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatCardModule,
-    HttpClientModule,
-  ],
-  providers: [
-  ],
-})
+@NgModule({ declarations: [
+        PersonalInformationComponent,
+        BannerComponent,
+        EducationComponent,
+        WorkExperienceComponent,
+        SkillsComponent,
+        ProjectsComponent,
+        ContactComponent,
+        ResponsiveDirective,
+        UserInputComponent,
+        PortpageComponent,
+        ChatComponent,
+        ShowprojectComponent,
+        LoginComponent,
+        UserInfoComponent,
+    ],
+    exports: [
+        // Optional: If component is used in other modules
+        PersonalInformationComponent,
+        BannerComponent,
+        EducationComponent,
+        WorkExperienceComponent,
+        SkillsComponent,
+        ProjectsComponent,
+        ContactComponent,
+        ResponsiveDirective,
+        UserInputComponent,
+        PortpageComponent,
+        ChatComponent,
+        ShowprojectComponent
+    ], imports: [CommonModule,
+        FormsModule,
+        MatCardModule], providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class PageModule { }
